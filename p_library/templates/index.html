@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+{% block title %}
+    {{ title }}
+{% endblock %}
+
+{% block content %}
+Добро пожаловать в {{ title }}.  <br>
+Тут собрано {{ books|length }} книг из моей личной коллекции.
+
+<table border="1">
+    {% for book in books %}
+        <tr>
+            <td>{{ book.title }}</td>
+            <td>{{ book.ISBN }}</td>
+            <td>{{ book.description }}</td>
+            <td>{{ book.year_release }}</td>
+            <td>{{ book.author.full_name }}</td>
+            <td>{{ book.author.country }}</td>
+        </tr>
+    {% endfor %}
+</table>
+{% endblock %}
